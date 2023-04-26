@@ -8,13 +8,14 @@ from transformers import GPTNeoForCausalLM, GPT2Tokenizer, TrainingArguments, Tr
 
 #Reading the file
 data = pd.read_excel("MedQuad dataset test.xlsx")
+print("Data loaded")
 
 # Convert the pandas DataFrame to Hugging Face's Dataset
 hf_dataset = Dataset.from_pandas(data)
 
 # Tokenize the dataset
 tokenizer = AutoTokenizer.from_pretrained("chavinlo/gpt4-x-alpaca")
-tokenizer.pad_token = tokenizer.eos_token
+print("Tokenizer Loaded")
 
 
 
