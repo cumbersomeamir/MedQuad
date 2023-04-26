@@ -3,7 +3,7 @@
 #Importing the relevant libararies
 import pandas as pd
 from datasets import Dataset
-from transformers import GPTNeoForCausalLM, GPT2Tokenizer, TrainingArguments, Trainer
+from transformers import GPTNeoForCausalLM, GPT2Tokenizer, TrainingArguments, Trainer, AutoModelForCausalLM
 
 
 #Reading the file
@@ -56,7 +56,7 @@ trainer.train()
 # Save the fine-tuned model
 trainer.save_model('alpacaxMedQuad')
 
-model = GPTNeoForCausalLM.from_pretrained('alpacaxMedQuad')
+model = AutoModelForCausalLM.from_pretrained('alpacaxMedQuad')
 
 
 #Saving the Model on huggingface
