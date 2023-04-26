@@ -65,3 +65,9 @@ model = AutoModelForCausalLM.from_pretrained('alpacaxMedQuad')
 #Saving the Model on huggingface
 token = "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"
 model.push_to_hub("Amirkid/alpaca-MedQuad", use_auth_token=token)
+
+
+'''
+Variable._execution_engine.run_backward(  # Calls into the C++ engine to run the backward pass
+torch.cuda.OutOfMemoryError: CUDA out of memory. Tried to allocate 270.00 MiB (GPU 0; 79.15 GiB total capacity; 77.76 GiB already allocated; 78.38MiB free; 77.88 GiB reserved in total by PyTorch) If reserved memory is >> allocated memory try setting max_split_size_mb to avoid fragmentation.See documentation for Memory Management and PYTORCH_CUDA_ALLOC_CONF'''
+
