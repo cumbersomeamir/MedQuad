@@ -12,9 +12,11 @@ print("Data loaded")
 
 # Convert the pandas DataFrame to Hugging Face's Dataset
 hf_dataset = Dataset.from_pandas(data)
+print("Dataset converted to huggingface")
 
-# Tokenize the dataset
+#Load the tokenizer
 tokenizer = AutoTokenizer.from_pretrained("chavinlo/gpt4-x-alpaca")
+tokenizer.pad_token = tokenizer.eos_token
 print("Tokenizer Loaded")
 
 
