@@ -3,7 +3,7 @@
 #Importing the relevant libararies
 import pandas as pd
 from datasets import Dataset
-from transformers import GPTNeoForCausalLM, GPT2Tokenizer, TrainingArguments, Trainer, AutoModelForCausalLM
+from transformers import GPTNeoForCausalLM, GPT2Tokenizer, TrainingArguments, Trainer, AutoModelForCausalLM, AutoTokenizer
 
 
 #Reading the file
