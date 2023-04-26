@@ -1,4 +1,4 @@
-#pip3 install transformers pandas openpyxl datasets protobuf==3.20 torch
+#pip3 install transformers pandas openpyxl datasets protobuf==3.20 torch sentencepiece
 
 #Importing the relevant libararies
 import pandas as pd
