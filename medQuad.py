@@ -15,7 +15,7 @@ print("Environment prepared")
 
 # Step 2: Load the MedQuad dataset
 medquad_file = 'MedQuad dataset test.xlsx'
-medquad_df = pd.read_excel("medquad_file)"
+medquad_df = pd.read_excel("medquad_file)")
 print("Dataset loaded")
 
 # Step 3: Fine-tune GPTneo 1.3B on the MedQuad dataset
