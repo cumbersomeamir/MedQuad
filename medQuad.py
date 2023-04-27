@@ -14,7 +14,7 @@ from gym.spaces import Discrete, Box
 print("Environment prepared")
 
 # Step 2: Load the MedQuad dataset
-medquad_file = 'content/drive/My Drive/'
+medquad_file = 'MedQuad dataset test.xlsx'
 medquad_df = pd.read_excel("medquad_file)"
 print("Dataset loaded")
 
