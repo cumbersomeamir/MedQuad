@@ -3,7 +3,7 @@
 #Importing the relevant libararies
 import pandas as pd
 from datasets import Dataset
-from transformers import TrainingArguments, Trainer, LlamaTokenizer , LlamaCausalLM
+from transformers import TrainingArguments, Trainer, LlamaTokenizer , LlamaForCausalLM
 
 
 #Reading the file
