@@ -1,4 +1,4 @@
-#pip3 install transformers pandas openpyxl datasets sentencepiece
+#pip3 install transformers pandas openpyxl datasets sentencepiece torch
 
 # Importing the relevant libraries
 import torch
