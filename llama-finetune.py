@@ -1,12 +1,11 @@
 #pip3 install transformers pandas openpyxl datasets sentencepiece
 
-#Importing the relevant libararies
+# Importing the relevant libraries
 import pandas as pd
 from datasets import Dataset
-from transformers import TrainingArguments, Trainer, LlamaTokenizer , LlamaForCausalLM
+from transformers import TrainingArguments, Trainer, LlamaTokenizer, LlamaForCausalLM
 
-
-#Reading the file
+# Reading the file
 data = pd.read_excel("MedQuad dataset test.xlsx")
 
 # Convert the pandas DataFrame to Hugging Face's Dataset
@@ -16,9 +15,7 @@ hf_dataset = Dataset.from_pandas(data)
 tokenizer = LlamaTokenizer.from_pretrained("huggyllama/llama-7b")
 tokenizer.pad_token = tokenizer.eos_token
 
-
-
-#Tokenisation
+# Tokenization
 def tokenize_function(examples):
     tokenized_prompt = tokenizer(examples['prompt'], truncation=True, padding='max_length', max_length=128, return_tensors='pt')
     tokenized_completion = tokenizer(examples['completion'], truncation=True, padding='max_length', max_length=128, return_tensors='pt')
@@ -26,8 +23,6 @@ def tokenize_function(examples):
 
 tokenized_dataset = hf_dataset.map(tokenize_function, batched=True)
 print("The tokenized dataset is ", tokenized_dataset)
-
-
 
 # Load the pre-trained GPT-Neo 1.3B model
 model = LlamaForCausalLM.from_pretrained('huggyllama/llama-7b')
@@ -40,8 +35,8 @@ training_args = TrainingArguments(
     save_total_limit=1,
     logging_steps=100,
     evaluation_strategy="no",
+    num_gpus=torch.cuda.device_count(),  # Set the number of GPUs to use
 )
-
 
 # Create a Trainer instance
 trainer = Trainer(
@@ -58,7 +53,6 @@ trainer.save_model('finetuned_llama')
 
 model = LlamaForCausalLM.from_pretrained('finetuned_llama')
 
-
-#Saving the Model on huggingface
+# Saving the Model on huggingface
 token = "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"
 model.push_to_hub("Amirkid/finetune-llama-test", use_auth_token=token)
