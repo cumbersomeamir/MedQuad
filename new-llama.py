@@ -27,7 +27,6 @@ print("The tokenized dataset is ", tokenized_dataset)
 
 # Load the pre-trained GPT-Neo 1.3B model
 model = LlamaForCausalLM.from_pretrained('huggyllama/llama-7b')
-model.to(device)  # Move the model to the GPU if available
 
 # Define the training arguments
 training_args = TrainingArguments(
@@ -36,8 +35,7 @@ training_args = TrainingArguments(
     per_device_train_batch_size=2,
     save_total_limit=1,
     logging_steps=100,
-    evaluation_strategy="no",
-    device=device  # Set the training device
+    evaluation_strategy="no"
 )
 
 # Create a Trainer instance
@@ -54,7 +52,6 @@ trainer.train()
 trainer.save_model('finetuned_llama')
 
 model = LlamaForCausalLM.from_pretrained('finetuned_llama')
-model.to(device)  # Move the model to the GPU if available
 
 # Saving the Model on huggingface
 token = "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"
