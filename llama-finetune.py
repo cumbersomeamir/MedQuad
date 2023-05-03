@@ -34,8 +34,7 @@ training_args = TrainingArguments(
     per_device_train_batch_size=1,
     save_total_limit=1,
     logging_steps=100,
-    evaluation_strategy="no",
-    num_gpus=torch.cuda.device_count(),  # Set the number of GPUs to use
+    evaluation_strategy="no"
 )
 
 # Create a Trainer instance
