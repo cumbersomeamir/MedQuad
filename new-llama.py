@@ -36,6 +36,7 @@ training_args = TrainingArguments(
     save_total_limit=1,
     logging_steps=100,
     evaluation_strategy="no"
+    gradient_accumulation_steps = 10
 )
 
 # Create a Trainer instance
