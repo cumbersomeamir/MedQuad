@@ -50,7 +50,7 @@ trainer.train()
 # Save the fine-tuned model
 trainer.save_model('finetuned-gptj-6B')
 
-model = AutoModelForCausalLM.from_pretrained('inetuned-gptj-6B')
+model = AutoModelForCausalLM.from_pretrained('finetuned-gptj-6B')
 
 # Saving the Model on huggingface
 token = "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"
