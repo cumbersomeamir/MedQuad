@@ -12,7 +12,7 @@ data = pd.read_excel("MedQuad dataset test.xlsx")
 hf_dataset = Dataset.from_pandas(data)
 
 # Tokenize the dataset
-tokenizer = AutoTokenizer.from_pretrained("EleutherAI/gpt-j-6B")
+tokenizer = AutoTokenizer.from_pretrained("EleutherAI/gpt-neo-1.3B")
 tokenizer.pad_token = tokenizer.eos_token
 
 # Tokenization
@@ -25,7 +25,7 @@ tokenized_dataset = hf_dataset.map(tokenize_function, batched=True)
 print("The tokenized dataset is ", tokenized_dataset)
 
 # Load the pre-trained GPT-Neo 1.3B model
-model = AutoModelForCausalLM.from_pretrained('EleutherAI/gpt-j-6B')
+model = AutoModelForCausalLM.from_pretrained('EleutherAI/gpt-neo-1.3B')
 
 # Define the training arguments
 training_args = TrainingArguments(
