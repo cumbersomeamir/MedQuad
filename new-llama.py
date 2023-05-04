@@ -2,7 +2,9 @@ import pandas as pd
 from datasets import Dataset
 from transformers import TrainingArguments, Trainer, LlamaTokenizer, LlamaForCausalLM
 import torch
+import os
 
+os.environ["PYTORCH_CUDA_ALLOC_CONF"] = "max_split_size_mb:512"
 # Check if a GPU is available and set the device accordingly
 device = torch.device("cuda" if torch.cuda.is_available() else "cpu")
 
